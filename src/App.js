@@ -1,7 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
+import { useContext } from 'react';
+import { WeatherContext } from './WeatherProvider/WeatherProvider';
 
 function App() {
+  const weatherInfo = useContext(WeatherContext);
+  console.log(weatherInfo)
   return (
     <div className="App">
       <header className="App-header">
