@@ -1,6 +1,34 @@
 import React, { useContext } from 'react';
 import { WeatherContext } from '../WeatherProvider/WeatherProvider';
-import { WiHumidity, WiSunrise, WiSunset } from 'react-icons/wi';
+import { WiHumidity, WiSunrise, WiSunset, WiStrongWind } from 'react-icons/wi';
+
+function WindDirectionText({degree = 0}) {
+    // 0 ~ 360 => 45 * 8
+    // 22.5 ~ 67.5 북동풍
+    // 337.5 ~ 22.5 북풍
+    switch (true) {
+        case (337.5 <= degree && degree <= 360) || (0 <= degree && degree < 22.5):
+            return "북풍";
+        case 22.5 <= degree && degree < 67.5:
+            return "북동풍";
+        case 67.5 <= degree && degree < 112.5:
+            return "동풍";
+        case 112.5 <= degree && degree < 157.5:
+            return "남동풍";
+        case 157.5 <= degree && degree < 202.5:
+            return "남풍";
+        case 202.5 <= degree && degree < 247.5:
+            return "남서풍";
+        case 247.5 <= degree && degree < 292.5:
+            return "서풍";
+        case 292.5 <= degree && degree < 337.5:
+            return "북서풍";
+        default:
+            return "";
+    }
+}
+
+
 
 function ExtraInfo() {
     const {humidity, speed, deg, sunset, sunrise} = useContext(WeatherContext);
@@ -33,10 +61,19 @@ function ExtraInfo() {
             </p>
         </div>
         <div className="extra-info-item">
-            <WiHumidity style={{fontSize:"50px", color:"#ff7500"}}/>
+            <WiHumidity style={{fontSize:"50px", color:"#0095ff"}}/>
             <p className='extra-info-text'>
                 {`${humidity}%`}<br/>
                 습도
+            </p>
+        </div>
+
+        <div className="extra-info-item">
+            <WiStrongWind style={{fontSize:"50px", color:"#2bc7ad"}}/>
+            <p className='extra-info-text'>
+                {`${speed}m/s`} (<WindDirectionText degree={deg}/>)
+                <br/>
+                바람
             </p>
         </div>
         </div>

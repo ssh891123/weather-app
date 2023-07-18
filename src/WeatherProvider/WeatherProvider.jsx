@@ -5,7 +5,12 @@ export const WeatherContext = createContext({});
 function WeatherProvider({children}) {
     const [weatherInfo, setWeatherInfo] = useState({});
 
-    const APIKEY = 'APIKEY';
+    //내가 발급받은 키 - 230712에 받음
+    const APIKEY = 'fd93d157e225573e99937849958e77d9';
+
+    // 아래 사이트에서 가져온 키
+    // https://velog.io/@eunhye_k/JavaScript-%EB%82%A0%EC%94%A8%EC%A0%95%EB%B3%B4-API
+    // const APIKEY = '2834387742b25d5393a21e88fee8246a'; 
     const getWeatherInfo =  async() => {
         try {
             const currentWeatherInfoAPI =
