@@ -2,16 +2,11 @@ import React, { useContext } from 'react';
 import { LabelList, Line, LineChart, XAxis } from 'recharts';
 import { WeatherContext } from '../WeatherProvider/WeatherProvider';
 import CurrentWeatherIcon from '../CurrentWeatherIcon/CurrentWeatherIcon';
-
 // https://swiperjs.com/react
 // Core modules imports are same as usual
 import { Navigation } from 'swiper/modules';
 // Direct React component imports
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Styles must use direct files imports
-import 'swiper/css';
-import 'swiper/css/navigation';
 
 //X축 - 시간
 const formatXAxis= (data) => `${new Date(data*1000).getHours()}시`;
@@ -63,7 +58,6 @@ function WeatherGraph() {
     }
 
     return (
-        // <LineGraph num={0} />
         <Swiper navigation={true} modules={[Navigation]}>
             {slides}
         </Swiper>
