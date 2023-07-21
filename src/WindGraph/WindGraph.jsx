@@ -68,7 +68,7 @@ function BarGraph({num}) {
             <Bar 
                 dataKey="wind_speed" fill="#00dd93" isAnimationActive={false} label={<CustomizedLabel/>}
             >
-                <LabelList dataKey="deg" content={<CustomizedContent/>}/>
+                <LabelList dataKey="wind_deg" content={<CustomizedContent/>}/>
             </Bar>
         </BarChart>
     );
