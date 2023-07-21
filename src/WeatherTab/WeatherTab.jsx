@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { Box, Tab, Tabs } from '@mui/material';
 import WeatherGraph from '../WeatherGraph/WeatherGraph';
 import HumidityGraph from '../HumidityGraph/HumidityGraph';
+import WindGraph from '../WindGraph/WindGraph';
 
 // Tab 스타일 속성
 // Styles must use direct files imports
 import 'swiper/css';
 import 'swiper/css/navigation';
+
 
 function TabPanel({children, value, index}) {
     return (
@@ -39,7 +41,7 @@ function WeatherTab() {
                 <HumidityGraph/>
             </TabPanel>
             <TabPanel value={value} index={2}>
-                3
+                <WindGraph/>
             </TabPanel>
         </Box>
     )
